@@ -1,0 +1,98 @@
+.list {
+    .container {
+        max-width: 1300px;
+        width: 90%;
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    a {
+        cursor: pointer;
+        color: #D1D1D1;
+        text-decoration: underline;
+        display: block;
+        margin-bottom: 2rem;
+    }
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -1rem;
+        li {
+            position: relative;
+            border-radius: 3px;
+            flex-basis: calc(33.33% - 1rem);
+            height: 418px;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(180deg, #dadada 0%, rgba(250, 200, 186, 0) 44.74%);
+            box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.04);
+            @media screen and (min-width: 1300px) {
+                flex-basis: calc(25% - 1rem);
+            }            
+            @media screen and (max-width: 900px) {
+                flex-basis: calc(50% - 1rem);
+            }            
+            @media screen and (max-width: 500px) {
+                flex-basis: calc(100% - 1rem);
+            }
+            & > span {
+                display: block;
+                width: 120px;
+                height: 120px;
+                border-radius: 100%;
+                background-color: #fff;
+                text-align: center;
+                line-height: 120px;
+                font-size: 32px;
+                font-weight: 300;
+                margin-top: 100px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            h2 {
+                font-size: 20px;
+                margin-top: 16px;
+                margin-bottom: 32px;
+                text-align: center;
+                font-weight: 400;
+            }
+            & > div {
+                display: flex;
+                justify-content: space-between;
+                & > div {
+                    flex-basis: 50%;
+                    text-align: center;
+                    h4 {
+                        margin-bottom: 8px;
+                        font-weight: 400;
+                        font-size: 14px;
+                    }
+                    span {
+                        font-size: 18px;
+                    }
+                    &:first-child {
+                        border-right: 1px solid #F6F6F6;
+                    }
+                }
+            }
+            & > p {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 10px;
+                span {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+                .active {
+                    background-color: #96E6A1;                    
+                }
+                .inactive {
+                    background-color: red;                    
+                }
+            }
+        }
+    }
+}
