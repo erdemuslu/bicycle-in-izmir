@@ -6,6 +6,9 @@
     &-bg, &-content {
         flex-basis: 50%;
         height: 100%;
+        @media screen and (max-width: 768px) {
+            flex-basis: 100%;
+        }
     }
     &-bg {
         overflow: hidden;
@@ -13,6 +16,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+        @media screen and (max-width: 768px) {
+            display: none;
         }
     }
     &-content {
