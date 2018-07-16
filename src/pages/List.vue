@@ -36,8 +36,7 @@
                 items: this.$store.state.stations
             }
         },
-        created() {
-            console.log('asfsaf');
+        beforeCreated() {
             this.$store.dispatch("getDatas");
         }
     }

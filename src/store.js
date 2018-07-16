@@ -6,13 +6,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    stations: []
+    stations: [],
+    isRendering: false
   },
   mutations: {
     getDatas(state) {
       axios.get("https://api.citybik.es//v2/networks/baksi-bisim")
       .then((response) => {
         state.stations = response.data.network.stations;
+        state.isRendering = true;
+        console.log(state.stations);
       })
       .catch(error => {
         console.log(error)

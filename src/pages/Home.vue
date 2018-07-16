@@ -25,6 +25,7 @@
 
 <script>
     import { mapActions } from 'vuex';
+    import axios from 'axios';
     import homeBG from "../assets/main-bg.png";
 
     export default {
@@ -40,18 +41,24 @@
         computed: {
             stations() {
                 return this.$store.state.stations
+            },
+            isRendering() {
+                return this.$store.state.isRendering
             }
         },
         methods: {
             handlePages() {
+                this.$store.dispatch("getDatas");
                 this.$router.push('/list');
             }
         },
         created() {
-            this.$store.dispatch("getDatas");
-            Array.prototype.map.call(this.$store.state.stations, (item) => {
-                this.totalBicycles += item.extra.slots;
-                this.totalFreeBicycles += item.free_bikes;
+            axios.get("https://api.citybik.es//v2/networks/baksi-bisim")
+              .then((response) => {
+                Array.prototype.map.call(response.data.network.stations, (item) => {
+                    this.totalBicycles += item.extra.slots;
+                    this.totalFreeBicycles += item.free_bikes;
+                })
             })
         }
     }
