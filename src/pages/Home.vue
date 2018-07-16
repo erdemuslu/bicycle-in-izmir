@@ -53,6 +53,7 @@
             }
         },
         created() {
+            this.$store.dispatch("getDatas");
             axios.get("https://api.citybik.es//v2/networks/baksi-bisim")
               .then((response) => {
                 Array.prototype.map.call(response.data.network.stations, (item) => {
