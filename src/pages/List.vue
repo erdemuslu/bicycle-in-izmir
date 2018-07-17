@@ -4,23 +4,23 @@
             <a @click="$router.go(-1)">back</a>
             <ul>
                 <li v-for="item in items">
-                    <span>{{ item.free_bikes }}</span>
+                    <span>{{ item.empty_slots }}</span>
                     <h2>{{ item.name }}</h2>
                     <div>
                         <div>
-                            <h4>Toplam</h4>
+                            <h4>Toplam Park</h4>
                             <span>{{ item.extra.slots }}</span>
                         </div>
                         <div>
-                            <h4>Boşta</h4>
-                            <span>{{ item.free_bikes }}</span>
+                            <h4>Bisiklet</h4>
+                            <span>{{ item.empty_slots }}</span>
                         </div>
                     </div>
-                    <p v-if="item.extra.status === 'Active'">
-                        <span class="active"></span>
+                    <p v-if="item.empty_slots === 0">
+                        <span class="inactive"></span>
                     </p>                    
                     <p v-else>
-                        <span class="inactive"></span>
+                        <span class="active"></span>
                     </p>
                 </li>
             </ul>

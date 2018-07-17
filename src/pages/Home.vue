@@ -10,11 +10,11 @@
                 <button class="button" v-on:click="handlePages">İstasyonları Gör</button>
                 <div>
                     <div>
-                        <h4>Boşta Bisiklet</h4>
+                        <h4>Kullanılabilir Bisiklet</h4>
                         <span>{{this.totalFreeBicycles}}</span>
                     </div>                    
                     <div>
-                        <h4>Toplam Bisiklet</h4>
+                        <h4>Toplam Park</h4>
                         <span>{{this.totalBicycles}}</span>
                     </div>
                 </div>
@@ -41,24 +41,20 @@
         computed: {
             stations() {
                 return this.$store.state.stations
-            },
-            isRendering() {
-                return this.$store.state.isRendering
             }
         },
         methods: {
             handlePages() {
-                this.$store.dispatch("getDatas");
                 this.$router.push('/list');
             }
         },
-        created() {
-            this.$store.dispatch("getDatas");
+        created() {            
             axios.get("https://api.citybik.es//v2/networks/baksi-bisim")
               .then((response) => {
+                this.$store.state.stations = response.data.network.stations;
                 Array.prototype.map.call(response.data.network.stations, (item) => {
                     this.totalBicycles += item.extra.slots;
-                    this.totalFreeBicycles += item.free_bikes;
+                    this.totalFreeBicycles += item.empty_slots;
                 })
             })
         }
