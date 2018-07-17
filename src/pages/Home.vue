@@ -26,7 +26,7 @@
 <script>
     import { mapActions } from 'vuex';
     import axios from 'axios';
-    import homeBG from "../assets/main-bg.png";
+    import homeBG from "../assets/main-bg-min.png";
 
     export default {
         name: "Home",
