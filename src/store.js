@@ -15,7 +15,6 @@ export default new Vuex.Store({
       .then((response) => {
         state.stations = response.data.network.stations;
         state.isRendering = true;
-        console.log(state.stations);
       })
       .catch(error => {
         console.log(error)
