@@ -52,5 +52,11 @@
                 }
             }
         }
+        & > span {
+            margin-top: 2em;
+        }
+        & > span, & > span a {
+            font-size: 12px;
+        }
     }
 }

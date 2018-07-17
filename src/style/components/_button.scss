@@ -8,4 +8,8 @@
     color: #fff;
     font-weight: 300;
     cursor: pointer;
+    &--back {
+    	background-color: #dcdcdc;
+    	color: #212121;
+    }
 }

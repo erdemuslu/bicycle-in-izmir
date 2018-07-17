@@ -1,7 +1,7 @@
 <template>
     <div class="list">
         <div class="container">
-            <a @click="$router.go(-1)">back</a>
+            <a @click="$router.go(-1)" class="button button--back">back</a>
             <ul>
                 <li v-for="item in items">
                     <span>{{ item.empty_slots }}</span>

@@ -17,8 +17,13 @@
                         <h4>Toplam Park</h4>
                         <span>{{this.totalBicycles}}</span>
                     </div>
-                </div>
+                </div> 
             </div>
+            <span>
+                Veriler 
+                <a target="_blank" href="//citybik.es">citybik.es</a>
+                tarafından sağlanmaktadır
+            </span>
         </div>
     </div>
 </template>
