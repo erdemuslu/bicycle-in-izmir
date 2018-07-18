@@ -6,7 +6,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    stations: []
+    stations: [],
+    weatherDatas: [],
+    todayTemp: []
   }
   // mutations: {
   //   getDatas(state) {

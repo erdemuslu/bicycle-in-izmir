@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    font-size: 16px;
     color: #212121;
     font-family: $body-font;
     box-sizing: border-box;
@@ -13,7 +12,11 @@ html, body {
 }
 
 body {
+    font-size: 16px;
     background-color: #FDFDFD;
+    @media screen and (max-width: 1400px) {
+        font-size: 14px;
+    }
 }
 
 ul {

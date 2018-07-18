@@ -3,8 +3,12 @@
     align-items: center;
     justify-content: space-between;
     height: 3em;
-    padding-left: 4em;
-    padding-right: 4em;
+    padding-left: 6em;
+    padding-right: 6em;
+    @media screen and(max-width: 768px) {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
     &__logo {
         width: 3em;
         height: 100%;
@@ -32,6 +36,9 @@
             }
             &:not(:last-child) {
                 margin-right: 2em;
+                @media screen and(max-width: 768px) {
+                    display: none;
+                }
             }
             &:last-child {
                 margin-left: 2em;

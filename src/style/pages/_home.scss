@@ -19,30 +19,53 @@
         }
         &--right {
             width: 60%;
-            padding-left: 6em;
-            padding-right: 4em;
-            padding-bottom: 6em;
-            h1, p {
-                font-family: $title-font;
+            padding-left: 8em;
+            padding-right: 6em;
+            padding-bottom: 8em;
+            @media screen and (max-width: 1600px) {
+                padding-bottom: 6em;                
             }
-            h1 {
-                font-size: 1.125em;
-                font-weight: normal;
-                margin-bottom: 1em;
+            & > div {
+                flex-basis: 100%;
             }
             p {
+                line-height: 1.4;
+                font-size: 1.4em;
+                font-weight: 300;
+                margin-bottom: 1.5rem;
+                width: 80%;
+            }
+            a {
+                margin-bottom: 12vh;
+                @media screen and (max-width: 1600px) {
+                    margin-bottom: 6vh;
+                }                
+            }
+            h1, h4 {
+                font-family: $title-font;
+                font-weight: normal;
+            }
+            h1 {
+                font-size: 2em;                
+                margin-bottom: .8em;
+                @media screen and (max-width: 1600px) {
+                    margin-bottom: .5em;
+                }                
+            }
+            h4 {
+                font-size: 1.2em;
                 color: #6C63FF;
+                margin-bottom: 4em;
             }
         }
         .weather {
             display: flex;
             flex-basis: 100%;
             justify-content: space-between;
+            min-height: 8.375em;
             &__block {
                 @extend %align-v-h;
                 flex-direction: column;
-                flex-grow: 1;
-                min-width: 4em;
                 &:not(:last-child) {
                     margin-right: 1.5em;
                 }
@@ -63,7 +86,40 @@
                     font-size: 1.25em;
                     font-weight: normal;
                 }
-            }   
+            }
+            @media screen and(max-width: 768px) {
+                display: none;
+            }
         }
+        @media screen and(max-width: 768px) {
+            &--left, &--right {
+                width: 100%;
+                height: auto;
+            }
+            &--left {
+                img {
+                    width: 80%;
+                }
+            }
+            &--right {
+                padding-left: 2em;
+                padding-right: 2em;
+                padding-bottom: 1em;
+                p {
+                    font-size: 1.2em;
+                    width: 100%;
+                }
+                h1 {
+                    font-size: 1.25em;
+                }
+                h4 {
+                    font-size: 1em;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    @media screen and(max-width: 768px) {
+        flex-wrap: wrap-reverse;    
     }
 }
