@@ -71,15 +71,25 @@
                 this.$router.push('/list');
             }
         },
-        created() {            
+        created() {
+            // baksi api
             axios.get("https://api.citybik.es//v2/networks/baksi-bisim")
-              .then((response) => {
+            .then((response) => {
                 this.$store.state.stations = response.data.network.stations;
                 Array.prototype.map.call(response.data.network.stations, (item) => {
                     this.totalBicycles += item.extra.slots;
                     this.totalFreeBicycles += item.empty_slots;
                 })
-            })
+            });
+
+            // weather api            
+            axios.get("//api.openweathermap.org/data/2.5/weather?APPID=a3f46c687f2144a15d0adc8b5d513af2&q=Izmir&units=metric")
+            .then((response) => {
+                console.log(response.data.main.temp);
+            }).
+            catch(error => {
+                console.log(error);
+            });
         }
     }
 </script>
