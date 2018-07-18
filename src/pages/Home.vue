@@ -83,7 +83,7 @@
             });
 
             // weather api            
-            axios.get("//api.openweathermap.org/data/2.5/weather?APPID=a3f46c687f2144a15d0adc8b5d513af2&q=Izmir&units=metric")
+            axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=a3f46c687f2144a15d0adc8b5d513af2&q=Izmir&units=metric")
             .then((response) => {
                 console.log(response.data.main.temp);
             }).
