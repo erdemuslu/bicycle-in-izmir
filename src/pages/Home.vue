@@ -37,7 +37,8 @@
                 totalBicycles: 0,
                 totalFreeBicycles: 0,
                 weatherIcons: {
-                    "Clear": clear
+                    "Clear": clear,
+                    "Rain": clear,
                 },
                 weatherData: this.$store.state.weatherData,
                 todayTemp: this.$store.state.todayTemp
@@ -67,9 +68,9 @@
             // weather api
             axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=Izmir&units=metric&lang=tr&appid=a3f46c687f2144a15d0adc8b5d513af2")
             .then((response) => {
-                this.weatherData = response.data.list;
+                this.weatherData = response.data.list.splice(0, 6);
                 this.todayTemp = Math.round(response.data.list[0].temp.day);
-                this.$store.state.weatherData = response.data.list;
+                this.$store.state.weatherData = response.data.list.splice(0, 6);
                 this.$store.state.todayTemp = response.data.list[0].temp.day;
             }).
             catch(error => {
