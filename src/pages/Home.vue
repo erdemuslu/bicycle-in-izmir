@@ -10,10 +10,10 @@
                 <h1>İzmir'de hava {{todayTemp}} derece.</h1>
                 <h4>Bisiklet'e binmek icin harika bir gun!</h4>
                 <ul class="weather">
-                    <li class="weather__block" v-for="item in weatherDatas">
-                        <h3>{{ moment(1531994400) }}</h3>
-                        <img :src=weatherIcons.clear alt="clear">
-                        <span>{{ item.temp.day }}</span>
+                    <li class="weather__block" v-for="item in weatherData">
+                        <h3>{{ moment(item.dt) }}</h3>
+                        <img :src="weatherIcons[item.weather[0].main]" :alt="item.weather[0].description">
+                        <span>{{ Math.round(item.temp.day) }}</span>
                     </li>
                 </ul>
             </div>
@@ -37,9 +37,9 @@
                 totalBicycles: 0,
                 totalFreeBicycles: 0,
                 weatherIcons: {
-                    "clear": clear
+                    "Clear": clear
                 },
-                weatherDatas: this.$store.state.weatherDatas,
+                weatherData: this.$store.state.weatherData,
                 todayTemp: this.$store.state.todayTemp
             }
         },
@@ -50,7 +50,8 @@
         },
         methods: {
             moment: function(date) {
-                return moment(date).format('dddd');
+                date = date * 1000;
+                return moment(date).locale('tr').format('dddd');
             }
         },
         created() {
@@ -64,12 +65,11 @@
                 })
             });
             // weather api
-            axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=a3f46c687f2144a15d0adc8b5d513af2&q=Izmir&units=metric&lang=tr&cnt=5")
+            axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=Izmir&units=metric&lang=tr&appid=a3f46c687f2144a15d0adc8b5d513af2")
             .then((response) => {
-                console.log(response);
-                this.weatherDatas = response.data.list;
-                this.todayTemp = response.data.list[0].temp.day;
-                this.$store.state.weatherDatas = response.data.list;
+                this.weatherData = response.data.list;
+                this.todayTemp = Math.round(response.data.list[0].temp.day);
+                this.$store.state.weatherData = response.data.list;
                 this.$store.state.todayTemp = response.data.list[0].temp.day;
             }).
             catch(error => {
