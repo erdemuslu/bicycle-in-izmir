@@ -7,6 +7,15 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-color: #FDFDFD;
+}
+
 ul {
     list-style-type: none;
 }
@@ -17,4 +26,8 @@ li {
 
 h1, h2, h3 ,h4, h5 {
     font-family: $title-font;
+}
+
+a {
+    text-decoration: none;
 }

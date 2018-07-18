@@ -1,89 +1,69 @@
 .home {
     display: flex;
     flex-wrap: wrap;
-    width: 100vw;
-    height: 100vh;
-    &-bg, &-content {
-        flex-basis: 50%;
-        height: 100%;
-        @media screen and (max-width: 768px) {
-            flex-basis: 100%;
-        }
-    }
-    &-bg {
-        overflow: hidden;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        @media screen and (max-width: 768px) {
-            display: none;
-        }
-    }
-    &-content {
+    justify-content: space-between;
+    width: 100%;
+    height: calc(100% - 3rem);
+    &-block {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        padding-left: 4rem;
-        padding-right: 4rem;
-        & > a {
-            position: absolute;
-            right: 2em;
-            top: 2em;
-            svg {
-                width: auto;
-                height: 1.5em;
-                g {
-                    fill: lightgray;
-                    transition: fill ease .32s;
+        flex-wrap: wrap;
+        justify-content: start;
+        align-items: flex-end;
+        height: 100%;
+        &--left {
+            width: 40%;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        &--right {
+            width: 60%;
+            padding-left: 6em;
+            padding-right: 4em;
+            padding-bottom: 6em;
+            h1, p {
+                font-family: $title-font;
+            }
+            h1 {
+                font-size: 1.125em;
+                font-weight: normal;
+                margin-bottom: 1em;
+            }
+            p {
+                color: #6C63FF;
+            }
+        }
+        .weather {
+            display: flex;
+            flex-basis: 100%;
+            justify-content: space-between;
+            &__block {
+                @extend %align-v-h;
+                flex-direction: column;
+                flex-grow: 1;
+                min-width: 4em;
+                &:not(:last-child) {
+                    margin-right: 1.5em;
                 }
-            }
-            &:hover {
-                svg {
-                    g {
-                        fill: #212121;
-                    }
+                h3, img {
+                    margin-bottom: 1em;
                 }
-            }
-        }
-        & > a#medium {
-            top: 2.1em;
-            right: 4.5em;
-            svg {
-                height: 1.4em;
-            }
-        }
-        h1 {
-            font-size: 2em;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-        p {
-            font-weight: light;
-            line-height: 1.5;
-            margin-bottom: 2rem;
-        }
-        & > div {
-            & > div {
-                display: flex;
-                margin-top: 2rem;
-                & > div {
-                    margin-right: 2em;
-                    h4 {
-                        margin-bottom: .5em;
-                        font-weight: light;
-                        font-size: .875em;
-                    }
+                h3 {
+                    font-weight: normal;
+                    font-size: .875em;
+                    text-transform: uppercase;
                 }
-            }
-        }
-        & > span {
-            margin-top: 2em;
-        }
-        & > span, & > span a {
-            font-size: 12px;
+                img {
+                    display: block;
+                    width: 4em;
+                    height: auto;
+                }
+                span {
+                    font-size: 1.25em;
+                    font-weight: normal;
+                }
+            }   
         }
     }
 }

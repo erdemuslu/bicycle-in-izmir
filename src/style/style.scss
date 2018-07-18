@@ -1,10 +1,15 @@
 // base
 @import "base/_config";
 @import "base/_base";
+@import "base/_extend";
 
 // components
 @import "components/_button";
 
 // pages
+@import "partials/_header";
+
+// pages
+@import "pages/_app";
 @import "pages/_home";
 @import "pages/_list";

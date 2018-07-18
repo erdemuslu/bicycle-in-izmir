@@ -1,47 +1,19 @@
 <template>
     <div class="home">
-        <div class="home-bg">
-            <img :src=homeBG alt="home-bg">
+        <div class="home-block home-block--left">
+            <img :src=mainIcon alt="main-icon">
         </div>
-        <div class="home-content">
-            <a target="_blank" href="//github.com/erdemuslu">
-                <svg width="439px" height="429px" viewBox="0 0 439 429" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="github-logo" fill="#000000" fill-rule="nonzero">
-                            <path d="M409.132,109.573 C389.524,75.977 362.927,49.379 329.334,29.773 C295.736,10.166 259.057,0.365 219.271,0.365 C179.49,0.365 142.799,10.169 109.208,29.773 C75.612,49.378 49.016,75.977 29.408,109.573 C9.803,143.168 0,179.854 0,219.63 C0,267.41 13.94,310.375 41.827,348.536 C69.711,386.7 105.733,413.108 149.89,427.763 C155.03,428.717 158.835,428.046 161.309,425.767 C163.784,423.485 165.02,420.627 165.02,417.205 C165.02,416.634 164.971,411.497 164.876,401.788 C164.778,392.079 164.732,383.609 164.732,376.382 L158.165,377.518 C153.978,378.285 148.696,378.61 142.319,378.518 C135.945,378.429 129.328,377.761 122.477,376.519 C115.623,375.288 109.248,372.433 103.347,367.96 C97.449,363.487 93.262,357.632 90.787,350.404 L87.932,343.834 C86.029,339.46 83.033,334.601 78.94,329.275 C74.847,323.944 70.708,320.33 66.521,318.427 L64.522,316.996 C63.19,316.045 61.954,314.898 60.811,313.567 C59.669,312.236 58.814,310.904 58.243,309.57 C57.671,308.235 58.145,307.14 59.67,306.281 C61.195,305.422 63.951,305.005 67.95,305.005 L73.658,305.858 C77.465,306.621 82.174,308.9 87.791,312.709 C93.405,316.515 98.02,321.463 101.637,327.551 C106.017,335.357 111.294,341.305 117.483,345.398 C123.667,349.491 129.902,351.534 136.182,351.534 C142.462,351.534 147.886,351.058 152.456,350.111 C157.021,349.159 161.304,347.728 165.303,345.826 C167.016,333.068 171.68,323.267 179.291,316.416 C168.443,315.276 158.69,313.559 150.027,311.276 C141.369,308.99 132.422,305.28 123.192,300.136 C113.957,294.999 106.296,288.62 100.207,281.01 C94.117,273.396 89.119,263.4 85.22,251.031 C81.319,238.657 79.368,224.383 79.368,208.205 C79.368,185.17 86.888,165.568 101.925,149.388 C94.881,132.07 95.546,112.656 103.922,91.148 C109.442,89.433 117.628,90.72 128.476,95.001 C139.326,99.284 147.27,102.953 152.316,105.995 C157.362,109.036 161.405,111.613 164.451,113.703 C182.156,108.756 200.427,106.282 219.269,106.282 C238.111,106.282 256.386,108.756 274.092,113.703 L284.941,106.854 C292.36,102.284 301.121,98.096 311.203,94.289 C321.291,90.484 329.005,89.436 334.337,91.151 C342.899,112.66 343.662,132.073 336.616,149.391 C351.652,165.571 359.175,185.178 359.175,208.208 C359.175,224.386 357.217,238.705 353.322,251.174 C349.422,263.645 344.381,273.631 338.197,281.153 C332.006,288.674 324.296,295.003 315.066,300.139 C305.834,305.279 296.884,308.989 288.226,311.275 C279.564,313.561 269.811,315.279 258.963,316.421 C268.857,324.983 273.805,338.498 273.805,356.96 L273.805,417.197 C273.805,420.619 274.995,423.476 277.377,425.759 C279.756,428.038 283.513,428.709 288.653,427.754 C332.816,413.101 368.838,386.692 396.721,348.528 C424.601,310.367 438.546,267.402 438.546,219.622 C438.536,179.851 428.728,143.168 409.132,109.573 Z"></path>
-                        </g>
-                    </g>
-                </svg>
-            </a>            
-            <a target="_blank" href="//medium.com/@erdemuslu" id="medium">
-                <svg width="484px" height="364px" viewBox="0 0 484 364" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="medium-size" fill="#000000" fill-rule="nonzero">
-                            <path d="M483.86,52.345 L457.161,52.345 C450.209,52.345 432.018,59.897 432.018,66.326 L432.018,299.793 C432.018,306.238 450.209,311.522 457.161,311.522 L483.86,311.522 L483.86,363.357 L311.052,363.357 L311.052,311.522 L345.622,311.522 L345.622,69.615 L339.606,69.615 L256.42,363.356 L192.014,363.356 L109.904,69.615 L103.685,69.615 L103.685,311.521 L138.24,311.521 L138.24,363.356 L0,363.357 L0,311.521 L19.173,311.521 C26.7,311.521 34.556,306.238 34.556,299.792 L34.556,66.326 C34.556,59.896 26.701,52.345 19.173,52.345 L0,52.345 L0,0.504 L179.155,0.504 L237.651,207.846 L239.225,207.846 L298.298,0.504 L483.86,0.504 L483.86,52.345 Z"></path>
-                        </g>
-                    </g>
-                </svg>
-            </a>
-            <h1>İzmir'deki Bisiklet <br>İstasyonları</h1>
-            <p>Bisim'in sağladığı bisiklet kiralama hizmetine ait istasyonlardaki doluluk oranını görebilirsiniz.</p>
-            <div>                
-                <button class="button" v-on:click="handlePages">İstasyonları Gör</button>
-                <div>
-                    <div>
-                        <h4>Kullanılabilir Bisiklet</h4>
-                        <span>{{this.totalFreeBicycles}}</span>
-                    </div>                    
-                    <div>
-                        <h4>Toplam Park</h4>
-                        <span>{{this.totalBicycles}}</span>
-                    </div>
-                </div> 
+        <div class="home-block home-block--right">
+            <div>
+                <h1>İzmir'de hava {{todayTemp}} derece.</h1>
+                <ul class="weather">
+                    <li class="weather__block" v-for="item in weatherDatas">
+                        <h3>Carsamba</h3>
+                        <img :src=weatherIcons.clear alt="clear">
+                        <span>{{ item.temp.day }}</span>
+                    </li>
+                </ul>
             </div>
-            <span>
-                Veriler 
-                <a target="_blank" href="//citybik.es">citybik.es</a>
-                tarafından sağlanmaktadır
-            </span>
         </div>
     </div>
 </template>
@@ -49,16 +21,22 @@
 <script>
     import { mapActions } from 'vuex';
     import axios from 'axios';
-    import homeBG from "../assets/main-bg-min.png";
+    import mainIcon from '../assets/main-icon.svg';
+    import clear from '../assets/clear.svg';
 
     export default {
         name: "Home",
         data() {
             return {
-                pageName: "Home page",
-                homeBG: homeBG,
+                pageName: "Home",
+                mainIcon: mainIcon,
                 totalBicycles: 0,
-                totalFreeBicycles: 0
+                totalFreeBicycles: 0,
+                weatherIcons: {
+                    "clear": clear
+                },
+                weatherDatas: [],
+                todayTemp: null
             }
         },
         computed: {
@@ -81,11 +59,14 @@
                     this.totalFreeBicycles += item.empty_slots;
                 })
             });
-
-            // weather api            
-            axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=a3f46c687f2144a15d0adc8b5d513af2&q=Izmir&units=metric")
+            // weather api
+            axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=a3f46c687f2144a15d0adc8b5d513af2&q=Izmir&units=metric&lang=tr")
             .then((response) => {
-                console.log(response.data.main.temp);
+                console.log(response);
+                // day limit for weather datas
+                const dayLimit = 5;
+                this.weatherDatas = response.data.list.slice(0, dayLimit);
+                this.todayTemp = response.data.list.slice(0, dayLimit)[0].temp.day;
             }).
             catch(error => {
                 console.log(error);
