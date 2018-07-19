@@ -1,10 +1,22 @@
 * {
     margin: 0;
     padding: 0;
-    font-size: 16px;
     color: #212121;
     font-family: $body-font;
     box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-size: 16px;
+    background-color: #FDFDFD;
+    @media screen and (max-width: 1400px) {
+        font-size: 14px;
+    }
 }
 
 ul {
@@ -17,4 +29,8 @@ li {
 
 h1, h2, h3 ,h4, h5 {
     font-family: $title-font;
+}
+
+a {
+    text-decoration: none;
 }

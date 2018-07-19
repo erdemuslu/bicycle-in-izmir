@@ -1,89 +1,125 @@
 .home {
     display: flex;
     flex-wrap: wrap;
-    width: 100vw;
-    height: 100vh;
-    &-bg, &-content {
-        flex-basis: 50%;
-        height: 100%;
-        @media screen and (max-width: 768px) {
-            flex-basis: 100%;
-        }
-    }
-    &-bg {
-        overflow: hidden;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        @media screen and (max-width: 768px) {
-            display: none;
-        }
-    }
-    &-content {
+    justify-content: space-between;
+    width: 100%;
+    height: calc(100% - 3rem);
+    &-block {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        padding-left: 4rem;
-        padding-right: 4rem;
-        & > a {
-            position: absolute;
-            right: 2em;
-            top: 2em;
-            svg {
-                width: auto;
-                height: 1.5em;
-                g {
-                    fill: lightgray;
-                    transition: fill ease .32s;
-                }
-            }
-            &:hover {
-                svg {
-                    g {
-                        fill: #212121;
-                    }
-                }
+        flex-wrap: wrap;
+        justify-content: start;
+        align-items: flex-end;
+        height: 100%;
+        &--left {
+            width: 40%;
+            img {
+                width: 100%;
+                height: auto;
             }
         }
-        & > a#medium {
-            top: 2.1em;
-            right: 4.5em;
-            svg {
-                height: 1.4em;
+        &--right {
+            width: 60%;
+            padding-left: 8em;
+            padding-right: 6em;
+            padding-bottom: 8em;
+            @media screen and (max-width: 1600px) {
+                padding-bottom: 6em;                
             }
-        }
-        h1 {
-            font-size: 2em;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-        p {
-            font-weight: light;
-            line-height: 1.5;
-            margin-bottom: 2rem;
-        }
-        & > div {
             & > div {
-                display: flex;
-                margin-top: 2rem;
-                & > div {
-                    margin-right: 2em;
-                    h4 {
-                        margin-bottom: .5em;
-                        font-weight: light;
-                        font-size: .875em;
-                    }
+                flex-basis: 100%;
+            }
+            p {
+                line-height: 1.4;
+                font-size: 1.4em;
+                font-weight: 300;
+                margin-bottom: 1.5rem;
+                width: 80%;
+            }
+            a {
+                margin-bottom: 12vh;
+                @media screen and (max-width: 1600px) {
+                    margin-bottom: 6vh;
+                }                
+            }
+            h1, h4 {
+                font-family: $title-font;
+                font-weight: normal;
+            }
+            h1 {
+                font-size: 2em;                
+                margin-bottom: .8em;
+                @media screen and (max-width: 1600px) {
+                    margin-bottom: .5em;
+                }                
+            }
+            h4 {
+                font-size: 1.2em;
+                color: #6C63FF;
+                margin-bottom: 4em;
+            }
+        }
+        .weather {
+            display: flex;
+            flex-basis: 100%;
+            justify-content: space-between;
+            min-height: 8.375em;
+            &__block {
+                @extend %align-v-h;
+                flex-direction: column;
+                &:not(:last-child) {
+                    margin-right: 1.5em;
+                }
+                h3, img {
+                    margin-bottom: 1em;
+                }
+                h3 {
+                    font-weight: normal;
+                    font-size: .875em;
+                    text-transform: uppercase;
+                }
+                img {
+                    display: block;
+                    width: 4em;
+                    height: 4em;
+                }
+                span {
+                    font-size: 1.25em;
+                    font-weight: normal;
+                }
+            }
+            @media screen and(max-width: 768px) {
+                display: none;
+            }
+        }
+        @media screen and(max-width: 768px) {
+            &--left, &--right {
+                width: 100%;
+                height: auto;
+            }
+            &--left {
+                img {
+                    width: 80%;
+                }
+            }
+            &--right {
+                padding-left: 2em;
+                padding-right: 2em;
+                padding-bottom: 1em;
+                p {
+                    font-size: 1.2em;
+                    width: 100%;
+                }
+                h1 {
+                    font-size: 1.25em;
+                }
+                h4 {
+                    font-size: 1em;
+                    margin: 0;
                 }
             }
         }
-        & > span {
-            margin-top: 2em;
-        }
-        & > span, & > span a {
-            font-size: 12px;
-        }
+    }
+    @media screen and(max-width: 768px) {
+        flex-wrap: wrap-reverse;    
     }
 }

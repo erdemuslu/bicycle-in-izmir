@@ -1,7 +1,6 @@
 <template>
     <div class="list">
         <div class="container">
-            <a @click="$router.go(-1)" class="button button--back">back</a>
             <ul>
                 <li v-for="item in items">                    
                     <a target="_blank" :href="'https://maps.google.com/?daddr=' + item.latitude + ',' + item.longitude">Yol Tarifi</a>

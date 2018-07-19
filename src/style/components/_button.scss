@@ -2,14 +2,14 @@
     display: inline-block;
     border: 0;
     outline: 0;
-    padding: 12px 30px;
-    border-radius: 4px;
-    background-color: #8E94F2;
+    padding: 14px 40px;
+    border-radius: 3px;
+    background-color: #6C63FF;
     color: #fff;
     font-weight: 300;
     cursor: pointer;
-    &--back {
-    	background-color: #dcdcdc;
-    	color: #212121;
+    transition: all .24s ease;
+    &:hover {
+        box-shadow: 0px 5px 3px rgba(108, 99, 255, 0.24);
     }
 }

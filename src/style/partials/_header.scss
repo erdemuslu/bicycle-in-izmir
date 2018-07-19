@@ -1,0 +1,69 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3em;
+    padding-left: 6em;
+    padding-right: 6em;
+    @media screen and(max-width: 768px) {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+    &__logo {
+        width: 3em;
+        height: 100%;
+        a {
+            @extend %align-v-h;
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+            background-color: #6C63FF;
+            color: #fff;
+            font-family: $title-font;
+            font-size: 1.25rem;
+        }
+    }
+    &__nav {
+        @extend %align-v-h;
+        a {
+            display: inline-block;
+            font-family: $title-font;
+            transition: color ease .24s;
+            svg {
+                path {
+                    transition: fill ease .24s;
+                }
+            }
+            &:not(:last-child) {
+                margin-right: 2em;
+                @media screen and(max-width: 768px) {
+                    display: none;
+                }
+            }
+            &:last-child {
+                margin-left: 2em;
+            }
+            &:hover {
+                color: #6C63FF;
+                svg {
+                    path {
+                        fill: #6C63FF;
+                    }
+                }
+            }
+        }
+        .is-active {
+            position: relative;
+            color: #6C63FF;
+            &::before {
+                content: "";
+                position: absolute;
+                top: calc(100% + .6em);
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: #6C63FF;
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+.crew {
+	ul {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -1rem;
+        li {
+        	@extend %align-v-h;
+        	flex-direction: column;
+            position: relative;
+            border-radius: 3px;
+            flex-basis: calc(33.33% - 1rem);
+            height: auto;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            padding-top: 4em;
+            padding-bottom: 4em;
+            background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+            @media screen and (min-width: 1300px) {
+                flex-basis: calc(25% - 1rem);
+            }            
+            @media screen and (max-width: 900px) {
+                flex-basis: calc(50% - 1rem);
+            }            
+            @media screen and (max-width: 500px) {
+                flex-basis: calc(100% - 1rem);
+            }            
+            & > div {
+            	width: 10em;       	
+            	height: 10em;
+            	border-radius: 100%;
+            	overflow: hidden;
+            	img {
+            		width: 100%;
+            		height: 100%;
+            		object-fit: cover;
+            	}
+            }
+            h1 {
+            	margin-top: 1rem;
+            }
+            h2 {
+            	font-size: 1em;
+            	margin-top: .5em;
+            	margin-bottom: 1rem;
+            	font-weight: 400;
+            }
+        }
+	}
+}
