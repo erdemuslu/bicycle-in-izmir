@@ -67,7 +67,7 @@
                 })
             });
             // weather api
-            axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=Izmir&units=metric&lang=tr&appid=a3f46c687f2144a15d0adc8b5d513af2")
+            axios.get("https://api.openweathermap.org/data/2.5/forecast/daily?q=Izmir&units=metric&lang=tr&appid=a3f46c687f2144a15d0adc8b5d513af2")
             .then((response) => {
                 this.weatherData = response.data.list.splice(0, 5);
                 this.todayTemp = Math.round(response.data.list[0].temp.day);
