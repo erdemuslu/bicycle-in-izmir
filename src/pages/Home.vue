@@ -7,7 +7,7 @@
             <div>
                 <p>Bisim'in sağladığı bisiklet kiralama hizmetine ait istasyonlardaki doluluk oranını görebilirsiniz.</p>
                 <router-link to="/list" class="button">İstasyonları Gör</router-link>
-                <h1>İzmir'de hava {{todayTemp}} derece.</h1>
+                <h1>İzmir'de hava {{ Math.round(weatherData[0].temp.day) }} derece.</h1>
                 <h4>Bisiklet'e binmek icin harika bir gun!</h4>
                 <ul class="weather">
                     <li class="weather__block" v-for="item in weatherData">
@@ -27,6 +27,7 @@
     import moment from 'moment';
     import mainIcon from '../assets/main-icon.svg';
     import clear from '../assets/clear.svg';
+    import rain from '../assets/rain.svg';
 
     export default {
         name: "Home",
@@ -38,10 +39,9 @@
                 totalFreeBicycles: 0,
                 weatherIcons: {
                     "Clear": clear,
-                    "Rain": clear,
+                    "Rain": rain
                 },
-                weatherData: this.$store.state.weatherData,
-                todayTemp: this.$store.state.todayTemp
+                weatherData: this.$store.state.weatherData
             }
         },
         computed: {
@@ -69,9 +69,7 @@
             axios.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=Izmir&units=metric&lang=tr&appid=a3f46c687f2144a15d0adc8b5d513af2")
             .then((response) => {
                 this.weatherData = response.data.list.splice(0, 5);
-                this.todayTemp = Math.round(response.data.list[0].temp.day);
                 this.$store.state.weatherData = response.data.list.splice(0, 5);
-                this.$store.state.todayTemp = response.data.list[0].temp.day;
             }).
             catch(error => {
                 console.log(error);

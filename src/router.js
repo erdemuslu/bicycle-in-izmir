@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./pages/Home.vue";
 import List from "./pages/List.vue";
+import Crew from "./pages/Crew.vue";
 
 Vue.use(Router);
 
@@ -17,6 +18,11 @@ export default new Router({
       path: "/list",
       name: "list",
       component: List
+    },
+    {
+      path: "/crew",
+      name: "crew",
+      component: Crew
     }
   ]
 });
