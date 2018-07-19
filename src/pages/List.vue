@@ -29,6 +29,8 @@
 </template>
 
 <script>
+    import axios from "axios";
+
     export default {
         name: "List",
         data() {
@@ -36,8 +38,12 @@
                 items: this.$store.state.stations
             }
         },
-        beforeCreated() {
-            this.$store.dispatch("getDatas");
+        created() {
+            // baksi api
+            axios.get("https://api.citybik.es//v2/networks/baksi-bisim")
+            .then((response) => {
+                this.items = response.data.network.stations;
+            });
         }
     }
 </script>

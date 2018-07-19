@@ -39,6 +39,9 @@
                 margin-bottom: 12vh;
                 @media screen and (max-width: 1600px) {
                     margin-bottom: 6vh;
+                }   
+                @media screen and (max-width: 768px) {
+                    margin-bottom: 2em;
                 }                
             }
             h1, h4 {
@@ -98,7 +101,7 @@
             }
             &--left {
                 img {
-                    width: 80%;
+                    width: 60%;
                 }
             }
             &--right {
