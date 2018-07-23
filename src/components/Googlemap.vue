@@ -1,7 +1,5 @@
 <template>
-    <div class="container">
-        <div class="google-map" :id="mapName"></div>
-    </div>
+    <div class="google-map" :id="mapName"></div>
 </template>
 
 <script>
@@ -56,9 +54,8 @@
 
 <style lang='scss' scoped>
     .google-map {
-        width: 800px;
+        width: 100%;
         height: 600px;
         margin: 0 auto;
-        background: gray;
     }
 </style>

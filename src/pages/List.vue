@@ -1,35 +1,19 @@
 <template>
     <div class="list">
         <div class="container">
-            <ul>
-                <li v-for="item in items">                    
-                    <a target="_blank" :href="'https://maps.google.com/?daddr=' + item.latitude + ',' + item.longitude">Yol Tarifi</a>
-                    <span>{{ item.empty_slots }}</span>
-                    <h2>{{ item.name }}</h2>
-                    <div>
-                        <div>
-                            <h4>Toplam Park</h4>
-                            <span>{{ item.extra.slots }}</span>
-                        </div>
-                        <div>
-                            <h4>Bisiklet</h4>
-                            <span>{{ item.empty_slots }}</span>
-                        </div>
-                    </div>
-                    <p v-if="item.empty_slots === 0">
-                        <span class="inactive"></span>
-                    </p>                    
-                    <p v-else>
-                        <span class="active"></span>
-                    </p>
-                </li>
-            </ul>
+            <div class="col">
+                Liste
+            </div>
+            <div class="col">
+                <Googlemap name="izmir" />
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import axios from "axios";
+    import Googlemap from '../components/Googlemap.vue';
 
     export default {
         name: "List",
@@ -37,6 +21,9 @@
             return {
                 items: this.$store.state.stations
             }
+        },
+        components: {
+            Googlemap
         },
         created() {
             // baksi api
