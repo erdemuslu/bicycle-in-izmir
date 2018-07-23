@@ -33,6 +33,14 @@ module.exports = {
                 }
             },
             {
+                test: /\.css$/,
+                use: [
+                    isDevelopment ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+                    {loader: 'css-loader', options: {sourceMap: true}},
+                    {loader: 'sass-loader', options: {sourceMap: true, outputStyle: 'compressed'}}
+                ],
+            },
+            {
                 test: /\.scss$/,
                 use: [
                     isDevelopment ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
