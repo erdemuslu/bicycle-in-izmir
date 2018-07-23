@@ -61,7 +61,6 @@
             axios.get("https://api.citybik.es//v2/networks/baksi-bisim")
             .then((response) => {
                 this.$store.state.stations = response.data.network.stations;
-                console.log(response.data.network.stations);
                 Array.prototype.map.call(response.data.network.stations, (item) => {
                     this.totalBicycles += item.extra.slots;
                     this.totalFreeBicycles += item.empty_slots;

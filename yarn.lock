@@ -6312,6 +6312,10 @@ vue-observe-visibility@^0.3.0:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/vue-observe-visibility/-/vue-observe-visibility-0.3.1.tgz#e7cad37893da42858c086196da9acdb0fd85340b"
 
+vue-radial-progress@^0.2.10:
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/vue-radial-progress/-/vue-radial-progress-0.2.10.tgz#b4064c5d0750daf0ee6a9e323b3f79bd2bd6dedc"
+
 vue-resize@^0.4.1:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/vue-resize/-/vue-resize-0.4.4.tgz#dee9b8dd1b189e7e3f6ec47f86c60694a241bb17"
