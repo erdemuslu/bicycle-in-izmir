@@ -1,22 +1,7 @@
 <template>
     <div class="home">
-        <div class="home-block home-block--left">
-            <img :src=mainIcon alt="main-icon">
-        </div>
-        <div class="home-block home-block--right">
-            <div>
-                <p>Bisim'in sağladığı bisiklet kiralama hizmetine ait istasyonlardaki doluluk oranını görebilirsiniz.</p>
-                <router-link to="/list" class="button">İstasyonları Gör</router-link>
-                <h1>İzmir'de hava {{ todayTemp }} derece.</h1>
-                <h4>Bisiklet'e binmek icin harika bir gun!</h4>
-                <ul class="weather">
-                    <li class="weather__block" v-for="item in weatherData">
-                        <h3>{{ moment(item.dt) }}</h3>
-                        <img :src="weatherIcons[item.weather[0].main]" :alt="item.weather[0].description">
-                        <span>{{ Math.round(item.temp.day) }}</span>
-                    </li>
-                </ul>
-            </div>
+        <div class="container">
+            <Googlemap name="izmir" />
         </div>
     </div>
 </template>
@@ -28,6 +13,8 @@
     import mainIcon from '../assets/main-icon.svg';
     import clear from '../assets/clear.svg';
     import rain from '../assets/rain.svg';
+
+    import Googlemap from '../components/Googlemap.vue';
 
     export default {
         name: "Home",
@@ -56,11 +43,15 @@
                 return moment(date).locale('tr').format('dddd');
             }
         },
+        components: {
+            Googlemap
+        },
         created() {
             // baksi api
             axios.get("https://api.citybik.es//v2/networks/baksi-bisim")
             .then((response) => {
                 this.$store.state.stations = response.data.network.stations;
+                console.log(response.data.network.stations);
                 Array.prototype.map.call(response.data.network.stations, (item) => {
                     this.totalBicycles += item.extra.slots;
                     this.totalFreeBicycles += item.empty_slots;
