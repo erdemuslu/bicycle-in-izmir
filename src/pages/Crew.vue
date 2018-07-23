@@ -19,6 +19,7 @@
     import ozanPhoto from "../assets/ozan_akman.jpeg";
     import cemPhoto from "../assets/tahsin_cem_yilmaz.jpeg";
     import erdemPhoto from "../assets/erdem_uslu.jpeg";
+    import yigitPhoto from "../assets/yigit_cukuren.jpeg";
 
     export default {
         name: "Crew",
@@ -45,6 +46,12 @@
                         "title": "Software Developer",
                         "linkedin": "https://www.linkedin.com/in/tahsin-cem-yilmaz/",
                         "photo": cemPhoto
+                    },
+                    {
+                        "name": "Yiğit Çüküren",
+                        "title": "Backend Developer",
+                        "linkedin": "https://www.linkedin.com/in/yigitcukuren/",
+                        "photo": yigitPhoto
                     },
                 ]
             }
