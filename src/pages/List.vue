@@ -19,6 +19,7 @@
                             <radial-progress-bar :diameter="50"
                                                    :completed-steps="item.empty_slots"
                                                    :total-steps="item.extra.slots"
+                                                   :strokeWidth="strokeWidth"
                                                    innerStrokeColor="#f0effd"
                                                    startColor="#2541B2">
                             </radial-progress-bar>
@@ -43,7 +44,8 @@
         data() {
             return {
                 items: this.$store.state.stations,
-                markers: Array
+                markers: Array,
+                strokeWidth: 2
             }
         },
         components: {
