@@ -9,13 +9,30 @@
         .col {
             flex-grow: 1;
             &:first-child {
-                width: 24em;
-                margin-right: 2em;
+                position: relative;
+                width: 26em;
+                margin-right: 0;
                 max-height: calc(100vh - 16em);
                 overflow-y: scroll;
+                overflow-x: hidden;
+                padding-right: 2em;
+                -ms-overflow-style: none;  // IE 10+
+                overflow: -moz-scrollbars-none;  // Firefox
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 100%;
+                    top: 0;
+                    width: 2em;
+                    height: 100%;
+                    background-color: #fdfdfd;
+                }
             }
             &:last-child {
-                width: calc(100% - 24em);
+                width: calc(100% - 26em);
             }
             ul {
                 display: flex;
