@@ -10,7 +10,7 @@
                 <h1>İzmir'de hava {{ todayTemp }} derece.</h1>
                 <h4 v-if="todayTemp > 24">Bisiklet'e binmek icin harika bir gun!</h4>
                 <ul class="weather">
-                    <li class="weather__block" v-for="item in weatherData">
+                    <li class="weather__block" v-for="(item, index) in weatherData" v-bind:key="index">
                         <h3>{{ moment(item.dt) }}</h3>
                         <img :src="weatherIcons[item.weather[0].main]" :alt="item.weather[0].description">
                         <span>{{ Math.round(item.temp.day) }}</span>
