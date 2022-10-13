@@ -13,8 +13,8 @@
                 mapName: this.name + "-map",
                 markerCoordinates: [
                     {
-                        latitude: 38.4047512791,
-                        longitude: 27.0701936867
+                        latitude: parseFloat(38.4047512791),
+                        longitude: parseFloat(27.0701936867)
                     }
                 ],
                 map: null,
@@ -25,17 +25,22 @@
         mounted() {
             const arr = [];
             for (const index in this.$store.state.stations) {
-                const obj = {
-                    "latitude": this.$store.state.stations[index].latitude,
-                    "longitude": this.$store.state.stations[index].longitude
-                };
-                arr.push(obj);
+                    if(this.$store.state.stations[index].Koordinat != ""){
+                        const obj = {
+                            "name": this.$store.state.stations[index].IstasyonAdi,
+                            "desc": `<h5>${this.$store.state.stations[index].IstasyonAdi}</h5><p>Burada <b>${this.$store.state.stations[index].BisikletSayisi}</b>/${(this.$store.state.stations[index].Kapasite)} bisiklet bulunmaktadır.</p>`,
+                            "latitude": (this.$store.state.stations[index].Koordinat.split(',')[0]).trim(),
+                            "longitude": (this.$store.state.stations[index].Koordinat.split(',')[1]).trim()
+                        };
+                        arr.push(obj);
+                    }
+                
             };
             this.bounds = new google.maps.LatLngBounds();
             const element = document.getElementById(this.mapName);
             const mapCentre = arr[0]
             const options = {
-              center: new google.maps.LatLng(mapCentre.latitude, mapCentre.longitude)
+              center: new google.maps.LatLng(parseFloat(mapCentre.latitude), parseFloat(mapCentre.longitude))
             }
             this.map = new google.maps.Map(element, options);
 
@@ -44,11 +49,13 @@
               const marker = new google.maps.Marker({ 
                 position,
                 map: this.map,
+                title: coord.name,
                 clickable: true,
                 icon: 'https://image.ibb.co/kkADRy/marker_icon.png'
               });
+              NoktalarWindow(marker, coord.desc);
             
-            this.markers.push(marker)
+              this.markers.push(marker)
               this.map.fitBounds(this.bounds.extend(position))
             });
         }

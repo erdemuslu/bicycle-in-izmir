@@ -78,3 +78,4 @@ typings/
 # parcel
 dist
 .cache
+.parsel-cache
