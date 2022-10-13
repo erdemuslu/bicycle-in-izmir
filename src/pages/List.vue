@@ -5,23 +5,23 @@
                 <ul>
                     <li v-for="item in items">                    
                         <div>
-                            <h2>{{ item.name }}</h2>
+                            <h2>{{ item.IstasyonAdi }}</h2>
                             <div>
                                 <h4>Toplam Park: </h4>
-                                <span>{{ item.extra.slots }}</span>
+                                <span>{{ item.Kapasite }}</span>
                             </div>
                             <div>
                                 <h4>Bisiklet: </h4>
-                                <span>{{ item.empty_slots }}</span>
+                                <span>{{ (item.BisikletSayisi) }}</span>
                             </div>
                         </div>
                         <div>
                             <radial-progress-bar :diameter="50"
-                                                   :completed-steps="item.empty_slots"
-                                                   :total-steps="item.extra.slots"
-                                                   :strokeWidth="strokeWidth"
-                                                   innerStrokeColor="#f0effd"
-                                                   startColor="#2541B2">
+                                :completed-steps="((item.Kapasite)-(item.BisikletSayisi))"
+                                :total-steps="item.Kapasite"
+                                :strokeWidth="strokeWidth"
+                                innerStrokeColor="#f0effd"
+                                startColor="#2541B2">
                             </radial-progress-bar>
                         </div>
                     </li>
@@ -48,17 +48,30 @@
                 strokeWidth: 2
             }
         },
+        computed: {
+            stations() {
+                return this.$store.state.stations
+            }
+        },
         components: {
             Googlemap,
             RadialProgressBar
         },
         beforeCreate() {
+
             const arr = [];
-            // baksi api
-            axios.get("https://api.citybik.es//v2/networks/baksi-bisim")
+            // bisim api
+            axios.get("https://openapi.izmir.bel.tr/api/izulas/bisim/istasyonlar")
             .then((response) => {
-                this.items = response.data.network.stations;
+                this.items = response.data.stations.filter((item,index,array) =>{
+                    if(item.Kapasite == "0"){
+                        return false
+                    }
+                    item.Kapasite = parseInt(item.Kapasite)
+                    return this.$store.state.stations = array;
+                })
             });
+            
         }
     }
 </script>

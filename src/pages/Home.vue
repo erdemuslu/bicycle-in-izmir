@@ -25,6 +25,7 @@
     import { mapActions } from 'vuex';
     import axios from 'axios';
     import moment from 'moment';
+    import 'moment/locale/tr';
     import mainIcon from '../assets/main-icon.svg';
     import clear from '../assets/clear.svg';
     import rain from '../assets/rain.svg';
@@ -58,16 +59,24 @@
         },
         created() {
             // baksi api
-            axios.get("https://api.citybik.es//v2/networks/baksi-bisim")
+            let stationsArr = []
+            axios.get("https://openapi.izmir.bel.tr/api/izulas/bisim/istasyonlar")
             .then((response) => {
-                this.$store.state.stations = response.data.network.stations;
-                Array.prototype.map.call(response.data.network.stations, (item) => {
-                    this.totalBicycles += item.extra.slots;
-                    this.totalFreeBicycles += item.empty_slots;
+                this.items = response.data.stations.filter((item,index,array) =>{
+                    if(item.Kapasite == "0"){
+                        return false
+                    }
+                    item.Kapasite = parseInt(item.Kapasite)
+                    stationsArr.push(item)
+                })
+                this.$store.state.stations = stationsArr;
+                Array.prototype.map.call(this.$store.state.stations, (item) => {
+                    this.totalBicycles += item.Kapasite;
+                    this.totalFreeBicycles += (item.Kapasite-item.BisikletSayisi);
                 })
             });
             // weather api
-            axios.get("https://api.openweathermap.org/data/2.5/forecast/daily?q=Izmir&units=metric&lang=tr&appid=a3f46c687f2144a15d0adc8b5d513af2")
+            axios.get("https://api.openweathermap.org/data/2.5/forecast/daily?q=Izmir&units=metric&lang=tr&appid=a3f46c687f2144a15d0adc8b5d513af2&lang=tr")
             .then((response) => {
                 this.weatherData = response.data.list.splice(0, 5);
                 this.todayTemp = Math.round(response.data.list[0].temp.day);
