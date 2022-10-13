@@ -28,7 +28,7 @@
                     if(this.$store.state.stations[index].Koordinat != ""){
                         const obj = {
                             "name": this.$store.state.stations[index].IstasyonAdi,
-                            "desc": `<h5>${this.$store.state.stations[index].IstasyonAdi}</h5><p>Burada <b>${this.$store.state.stations[index].BisikletSayisi}</b>/${(this.$store.state.stations[index].Kapasite)} bisiklet bulunmaktadır.</p>`,
+                            "desc": `<h4>${this.$store.state.stations[index].IstasyonAdi}</h4><p>Burada <b>${this.$store.state.stations[index].BisikletSayisi}</b>/${(this.$store.state.stations[index].Kapasite)} bisiklet bulunmaktadır.</p>`,
                             "latitude": (this.$store.state.stations[index].Koordinat.split(',')[0]).trim(),
                             "longitude": (this.$store.state.stations[index].Koordinat.split(',')[1]).trim()
                         };
