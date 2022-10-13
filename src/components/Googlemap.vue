@@ -44,6 +44,15 @@
             }
             this.map = new google.maps.Map(element, options);
 
+            function NoktalarWindow(marker,message){
+                var InfoWindow = new google.maps.InfoWindow({
+                    content: message
+                });
+                google.maps.event.addListener(marker, 'click', function () {
+                    InfoWindow.open(this.map, marker);
+                });
+            }
+
             arr.forEach((coord) => {
               const position = new google.maps.LatLng(coord.latitude, coord.longitude);
               const marker = new google.maps.Marker({ 

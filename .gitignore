@@ -79,3 +79,5 @@ typings/
 dist
 .cache
 .parsel-cache
+
+package-lock.json
