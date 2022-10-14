@@ -21,7 +21,8 @@
                                 :total-steps="item.Kapasite"
                                 :strokeWidth="strokeWidth"
                                 innerStrokeColor="#f0effd"
-                                startColor="#2541B2">
+                                startColor="#2541B2"
+                                stopColor="#429321">
                             </radial-progress-bar>
                         </div>
                     </li>
@@ -45,7 +46,7 @@
             return {
                 items: this.$store.state.stations,
                 markers: Array,
-                strokeWidth: 2
+                strokeWidth: 7
             }
         },
         computed: {
