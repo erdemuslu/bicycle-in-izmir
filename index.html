@@ -11,16 +11,5 @@
   <div id="app" role="contentinfo"></div>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQSqGuf-sJ0UaxXbgbRz2H1TUEWvVCb7Q" async defer></script>
   <script src="src/main.js"></script>
-  <script>
-    function NoktalarWindow(marker, message) {
-      var InfoWindow = new google.maps.InfoWindow({
-        content: message
-      });
-
-      google.maps.event.addListener(marker, 'click', function () {
-        InfoWindow.open("izmir-map", marker);
-      });
-    }
-  </script>
 </body>
 </html>
