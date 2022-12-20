@@ -78,6 +78,8 @@ typings/
 # parcel
 dist
 .cache
-.parsel-cache
-
+.parsel-cache/
+/.parsel-cache/*
 package-lock.json
+.parcel-cache/data.mdb
+.parcel-cache/lock.mdb
