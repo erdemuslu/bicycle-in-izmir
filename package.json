@@ -6,7 +6,8 @@
   "scripts": {
     "start": "parcel index.html --port 9000",
     "build-maps": "parcel build index.html --no-source-maps",
-    "build": "parcel build index.html --no-source-maps"
+    "build": "parcel build --no-minify index.html --no-source-maps",
+    "dev": "parcel build --no-minify index.html --no-source-maps"
   },
   "repository": {
     "type": "git",

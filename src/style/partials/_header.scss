@@ -5,7 +5,7 @@
     height: 3em;
     padding-left: 6em;
     padding-right: 6em;
-    @media screen and(max-width: 768px) {
+    @media screen and (max-width: 768px) {
         padding-left: 2em;
         padding-right: 2em;
     }
@@ -36,7 +36,7 @@
             }
             &:not(:last-child) {
                 margin-right: 2em;
-                @media screen and(max-width: 768px) {
+                @media screen and (max-width: 768px) {
                     display: none;
                 }
             }
